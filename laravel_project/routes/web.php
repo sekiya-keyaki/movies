@@ -20,6 +20,14 @@ Route::get('/top', function () {
     return view('top');
 });
 
+Route::get('/movies', function () {
+    return view('movies');
+});
+
+Route::get('paginate', 'MovieController@index')->name('movie.index');
+Route::get('show/{id}', 'MovieController@show')->name('movie.show');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

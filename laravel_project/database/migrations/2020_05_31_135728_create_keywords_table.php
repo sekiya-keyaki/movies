@@ -18,6 +18,8 @@ class CreateKeywordsTable extends Migration
             $table->unsignedBigInteger('movie_id');
             $table->string('genre');
             $table->timestamps();
+
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
         });
     }
 
