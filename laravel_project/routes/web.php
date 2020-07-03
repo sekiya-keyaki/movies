@@ -26,6 +26,9 @@ Route::get('/movies', function () {
 
 Route::get('paginate', 'MovieController@index')->name('movie.index');
 Route::get('show/{id}', 'MovieController@show')->name('movie.show');
+Route::get('review/{reviewId}', 'MovieController@review')->name('movie.review');
+
+
 
 
 Auth::routes();

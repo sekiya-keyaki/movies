@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Movie;
+use App\Models\Review;
 
 class MovieController extends Controller
 {
@@ -36,5 +37,12 @@ class MovieController extends Controller
         $show = Movie::find($id);
 
         return view('show',compact('show'));
+    }
+
+    public function review($reviewId)
+    {
+        $review = Review::where('movie_id',$reviewId)->first();
+
+        return view('review',compact('review'));
     }
 }

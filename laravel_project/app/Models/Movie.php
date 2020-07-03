@@ -9,4 +9,7 @@ class Movie extends Model
     public function keywords(){
         return $this->hasMany(Keyword::class);
     }
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
 }
