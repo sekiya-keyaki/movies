@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Movie;
 use App\Models\Review;
 
@@ -39,10 +39,26 @@ class MovieController extends Controller
         return view('show',compact('show'));
     }
 
-    public function review($reviewId)
+    public function review($movieId)
     {
-        $review = Review::where('movie_id',$reviewId)->first();
+        $review = Review::where('movie_id',$movieId)->first();
 
         return view('review',compact('review'));
     }
+
+    public function create($movieId){
+        $review = Review::where('movie_id',$movieId)->first();
+
+        return view('create',compact('movieId'));
+
+    }
+    public function store(Request $request)
+{
+    $post = new Review;
+    $post->fill($request->all());
+    $post->user()->associate(Auth::user());
+    $post->save();
+
+    return redirect()->back();
+}
 }
