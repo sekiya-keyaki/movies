@@ -16,15 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/top', function () {
-    return view('top');
-});
 
-Route::get('/movies', function () {
-    return view('movies');
-});
 
-Route::get('paginate', 'MovieController@index')->name('movie.index');
+
+
+Route::get('top', 'MovieController@top')->name('movie.top');
+Route::get('movies', 'MovieController@index')->name('movie.index');
 Route::get('show/{id}', 'MovieController@show')->name('movie.show');
 Route::get('review/{movieId}', 'MovieController@review')->name('movie.review');
 Route::middleware('auth')->get('create/{movieId}', 'MovieController@create')->name('movie.create');
