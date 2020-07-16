@@ -18,8 +18,7 @@
                             <label for="textarea1" class="col-md-4 col-form-label text-md-right">内容</label>
 
                             <div class="col-md-6">
-
-                                <textarea id="textarea1" class="form-control"></textarea>
+                                <input id="body" type="text" class="form-control" name="body" value="" required autofocus>
                                 <input name="movie_id" type="hidden" value="{{ $movieId }}" />
                             </div>
                         </div>
