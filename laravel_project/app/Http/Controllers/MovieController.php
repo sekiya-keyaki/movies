@@ -14,73 +14,71 @@ class MovieController extends Controller
     {
         $keyword = $request->input('keyword');
 
-        if(!empty($keyword))
-        {
+        if (!empty($keyword)) {
             $movies = DB::table('movies')
-            ->where('title','like','%'.$keyword.'%')
-            ->paginate(4);
+                ->where('title', 'like', '%' . $keyword . '%')
+                ->paginate(4);
 
-            $movies = Movie::whereHas('keywords',function($query)use($keyword){
-                $query->where('genre','like','%'.$keyword.'%');
+            $movies = Movie::whereHas('keywords', function ($query) use ($keyword) {
+                $query->where('genre', 'like', '%' . $keyword . '%');
             })->paginate(4);
-        }else{
+        } else {
             $movies = DB::table('movies')->paginate(4);
         }
 
-        return view('top',[
-            'movies'=> $movies,
-            'keyword'=> $keyword,
+        return view('top', [
+            'movies' => $movies,
+            'keyword' => $keyword,
         ]);
     }
     public function index(Request $request)
     {
         $keyword = $request->input('keyword');
 
-        if(!empty($keyword))
-        {
+        if (!empty($keyword)) {
             $movies = DB::table('movies')
-            ->where('title','like','%'.$keyword.'%')
-            ->paginate(4);
+                ->where('title', 'like', '%' . $keyword . '%')
+                ->paginate(4);
 
-            $movies = Movie::whereHas('keywords',function($query)use($keyword){
-                $query->where('genre','like','%'.$keyword.'%');
+            $movies = Movie::whereHas('keywords', function ($query) use ($keyword) {
+                $query->where('genre', 'like', '%' . $keyword . '%');
             })->paginate(4);
-        }else{
+        } else {
             $movies = DB::table('movies')->paginate(4);
         }
 
-        return view('search.index',[
-            'movies'=> $movies,
-            'keyword'=> $keyword,
+        return view('search.index', [
+            'movies' => $movies,
+            'keyword' => $keyword,
         ]);
     }
     public function show($id)
     {
         $show = Movie::find($id);
 
-        return view('show',compact('show'));
+        return view('show', compact('show'));
     }
 
     public function review($movieId)
     {
-        $review = Review::where('movie_id',$movieId)->first();
+        $reviews = Review::where('movie_id', $movieId)->get();
 
-        return view('review',compact('review'));
+        return view('review', compact('reviews'));
     }
 
-    public function create($movieId){
-        $review = Review::where('movie_id',$movieId)->first();
+    public function create($movieId)
+    {
+        $review = Review::where('movie_id', $movieId)->get();
 
-        return view('create',compact('movieId'));
-
+        return view('create', compact('movieId'));
     }
     public function store(Request $request)
-{
-    $post = new Review;
-    $post->fill($request->all());
-    $post->user()->associate(Auth::user());
-    $post->save();
+    {
+        $post = new Review;
+        $post->fill($request->all());
+        $post->user()->associate(Auth::user());
+        $post->save();
 
-    return redirect()->back();
-}
+        return redirect()->back();
+    }
 }
