@@ -79,6 +79,6 @@ class MovieController extends Controller
         $post->user()->associate(Auth::user());
         $post->save();
 
-        return redirect()->back();
+        return redirect()->to('/top');
     }
 }

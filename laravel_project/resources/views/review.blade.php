@@ -2,9 +2,9 @@
 
 @section('content')
 <style>
-    #review{
-    padding: 20px;
-    text-align: center;
+    #review {
+        padding: 20px;
+        text-align: center;
 
     }
 </style>
@@ -13,12 +13,14 @@
     <div class="card">
         <div class="card-header">{{optional($review)->user->name}}</div>
         <div class="card-body">{{optional($review)->body}}</div>
-    @endforeach
-    <div id="review" class="card-footer">
-        <a href="{{ route('movie.create',['movieId' => $review->movie_id ]) }}">
-            レビューを投稿する
-        </a>
-    </div>
+        @endforeach
+
+
+        <div id="review" class="card-footer">
+            <a href="{{ route('movie.create',['movieId' => $review->movie_id ]) }}">
+                レビューを投稿する
+            </a>
+        </div>
     </div>
 </div>
 @endsection
