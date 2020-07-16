@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+   
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,10 +23,12 @@
                                 <input name="movie_id" type="hidden" value="{{ $movieId }}" />
                             </div>
                         </div>
-                        
-                            <div class="text-right">
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">投稿</button>
                             </div>
+                        </div>
 
 
                     </form>

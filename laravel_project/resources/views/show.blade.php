@@ -1,13 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    img.img {
+        width: 50%;
+        height: 50%;
+        margin: 10px;
+    }
+    #review{
+    padding: 20px;
+    text-align: center;
 
-<h1>{{ $show->title }}</h1>
-<img src="{{ asset('storage/'.$show->image) }}" align="left">
-<h2>作品紹介</h2>
-{{ $show->introduction}}
-<br>
-<a href="{{ route('movie.review',['movieId' => $show->id ]) }}">
-レビュー一覧
-</a>
+    }
+</style>
+<div class="container">
+    <div class="card">
+        <div class="card-header">{{ $show->title }}</div>
+        <div class="card-body">
+            <img src="{{ asset('storage/'.$show->image) }}" align="left" class="img">
+            <h3>作品紹介</h3>
+            {{ $show->introduction}}
+        </div>
+        <br>
+        <div id="review" class="card-footer">
+            <a href="{{ route('movie.review',['movieId' => $show->id ]) }}">
+                レビューを見る
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
 @endsection
