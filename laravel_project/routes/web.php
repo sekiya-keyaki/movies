@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 
 
-Route::get('top', 'MovieController@top')->name('movie.top');
+
+Route::get('/', 'MovieController@top')->name('movie.top');
 Route::get('movies', 'MovieController@index')->name('movie.index');
 Route::get('show/{id}', 'MovieController@show')->name('movie.show');
 Route::get('review/{movieId}', 'MovieController@review')->name('movie.review');
