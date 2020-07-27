@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    #review {
-        padding: 20px;
-        text-align: center;
-
-    }
-</style>
 <div class="container">
     @foreach($reviews as $review)
     <div class="card">
