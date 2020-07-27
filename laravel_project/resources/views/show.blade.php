@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    img.img {
-        width: 50%;
-        height: 50%;
-        margin: 10px;
-    }
-    #review{
-    padding: 20px;
-    text-align: center;
-
-    }
-</style>
 <div class="container">
     <div class="card">
         <div class="card-header">{{ $show->title }}</div>
