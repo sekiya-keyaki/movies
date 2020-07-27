@@ -47,7 +47,7 @@
 </style>
 
 <div style="text-align: center;width:100%">
-  <img src="storage/e1210e3187d3301afcc77b53d2c9291e_t.jpg" class="image_size_m">
+  <img src="/images/e1210e3187d3301afcc77b53d2c9291e_t.jpg" class="image_size_m">
 </div>
 
 <div class="form-group">
