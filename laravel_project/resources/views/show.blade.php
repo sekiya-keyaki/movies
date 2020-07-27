@@ -17,7 +17,7 @@
     <div class="card">
         <div class="card-header">{{ $show->title }}</div>
         <div class="card-body">
-            <img src="{{ asset('images/'.$show->image) }}" align="left" class="img">
+            <img src="{{ '/images/'.$show->image }}" align="left" class="img">
             <h3>作品紹介</h3>
             {{ $show->introduction}}
         </div>

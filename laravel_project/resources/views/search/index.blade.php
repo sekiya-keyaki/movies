@@ -64,7 +64,7 @@
 <div id="pic_frame">
   <div style="margin:10px">
     <a href="{{ route('movie.show',['id' => $movie->id ]) }}">
-      <img src="{{ asset('/images/'.$movie->image) }}">
+      <img src="{{ '/images/'.$movie->image }}">
     </a>
   </div>
 </div>
