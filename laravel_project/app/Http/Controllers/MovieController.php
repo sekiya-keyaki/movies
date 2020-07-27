@@ -47,7 +47,9 @@ class MovieController extends Controller
             $movies = DB::table('movies')->paginate(4);
         }
 
-        return view('search.index', [
+
+
+        return view('search', [
             'movies' => $movies,
             'keyword' => $keyword,
         ]);
