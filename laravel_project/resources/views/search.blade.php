@@ -9,11 +9,10 @@
     </form>
   </div>
 
-
-
-
-
 @if(count($movies) > 0)
+
+
+
 @foreach($movies as $movie)
 <div id="pic_frame">
   <div style="margin:10px">
