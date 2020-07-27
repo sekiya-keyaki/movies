@@ -15,6 +15,7 @@
                     <form method="post" action="{{ route('movie.store') }}">
                         @csrf
                         <div class="form-group row">
+                        <p id="star1"></p>
                             <label for="textarea1" class="col-md-4 col-form-label text-md-right">内容</label>
 
                             <div class="col-md-6">
@@ -37,4 +38,17 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('script')
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<script type="text/javascript" src="/js/jquery.raty.js"></script>
+<script type="text/javascript">
+    $('#star1').raty({
+        path: '/js/images/',
+        score: 3
+    });
+</script>
+
 @endsection
